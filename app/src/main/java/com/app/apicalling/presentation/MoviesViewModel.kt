@@ -44,4 +44,16 @@ class MoviesViewModel @Inject constructor(private val moviesInteractor: MoviesIn
         }
     }
 
+    fun findPeakElement(arr: IntArray, len : Int) : Int{
+
+        if (len == 1) return 0
+        if (arr[0] >= arr[1]) return 0
+        if (arr[len - 1] >= arr[len - 2]) return len - 1
+
+        for (i in 1 until len - 1) {
+            if (arr[i] >= arr[i - 1] && arr[i] >= arr[i + 1]) return i
+        }
+        return 0
+    }
+
 }
